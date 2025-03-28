@@ -19,13 +19,20 @@ export class User {
   createdAt: Date;
   updatedAt: Date;
 
-  private constructor(props: UserContructorProps) {
-    this.id = props.id || new UserId();
-    this.name = props.name;
-    this.email = props.email;
-    this.password = props.password || '';
-    this.createdAt = props.createdAt || new Date();
-    this.updatedAt = props.updatedAt || new Date();
+  private constructor({
+    id,
+    name,
+    email,
+    password,
+    createdAt,
+    updatedAt,
+  }: UserContructorProps) {
+    this.id = id || new UserId();
+    this.name = name;
+    this.email = email;
+    this.password = password || '';
+    this.createdAt = createdAt || new Date();
+    this.updatedAt = updatedAt || new Date();
   }
 
   static create(props: UserContructorProps) {
