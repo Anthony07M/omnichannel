@@ -1,3 +1,4 @@
+import { Address } from 'src/shared/value-objects/address.vo';
 import { Uuid } from 'src/shared/value-objects/uuid.vo';
 
 export class UserId extends Uuid {}
@@ -9,6 +10,7 @@ export class UserContructorProps {
   password?: string;
   createdAt?: Date;
   updatedAt?: Date;
+  address: Address;
 }
 
 export class User {
@@ -18,6 +20,7 @@ export class User {
   password: string;
   createdAt: Date;
   updatedAt: Date;
+  address: Address;
 
   private constructor({
     id,
@@ -26,6 +29,7 @@ export class User {
     password,
     createdAt,
     updatedAt,
+    address,
   }: UserContructorProps) {
     this.id = id || new UserId();
     this.name = name;
@@ -33,6 +37,7 @@ export class User {
     this.password = password || '';
     this.createdAt = createdAt || new Date();
     this.updatedAt = updatedAt || new Date();
+    this.address = address;
   }
 
   static create(props: UserContructorProps) {
