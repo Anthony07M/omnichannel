@@ -6,7 +6,7 @@ describe('User entity unit test', () => {
     const props: UserContructorProps = {
       name: 'Jonh Doe',
       email: 'jonh@mail.com',
-      address: Address.crete({
+      address: Address.create({
         cep: '69018-660',
         logradouro: 'Rua Macacaúba',
         complemento: '(Res V Melhor - 2ª Etapa)',
