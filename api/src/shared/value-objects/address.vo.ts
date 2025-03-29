@@ -1,4 +1,5 @@
 export interface AddressContructorProps {
+  id?: string;
   cep: string;
   logradouro: string;
   complemento: string;
@@ -10,6 +11,7 @@ export interface AddressContructorProps {
 }
 
 export class Address {
+  id: string;
   cep: string;
   logradouro: string;
   complemento: string;
@@ -20,6 +22,7 @@ export class Address {
   regiao: string;
 
   constructor({
+    id,
     cep,
     logradouro,
     complemento,
@@ -29,6 +32,7 @@ export class Address {
     estado,
     regiao,
   }: AddressContructorProps) {
+    this.id = id || '';
     this.cep = cep;
     this.logradouro = logradouro;
     this.complemento = complemento;
@@ -39,7 +43,7 @@ export class Address {
     this.regiao = regiao;
   }
 
-  static crete(props: AddressContructorProps) {
+  static create(props: AddressContructorProps) {
     return new Address(props);
   }
 

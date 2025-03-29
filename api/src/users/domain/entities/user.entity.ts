@@ -14,7 +14,7 @@ export class UserContructorProps {
 }
 
 export class User {
-  id?: UserId;
+  id: UserId;
   name: string;
   email: string;
   password: string;
