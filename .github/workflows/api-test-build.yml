@@ -22,8 +22,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - run: ls
-    - run: cd api; npm ci
-    - run: ls
-    - run: cd api; npm run build
-    - run: cd api; npm test
+    - name: Install dependencies with npm ci
+      run: cd api; npm ci
+    
+    - name: Build the API
+      run: cd api; npm run build
+
+    - name: Run Tests Unit
+      run: cd api; npm test
