@@ -76,6 +76,13 @@
     "moduleNameMapper": {
       "^src/(.*)$": "<rootDir>/$1"
     },
+    "modulePathIgnorePatterns": [
+      "<rootDir>/main.ts",
+      "\\.module\\.ts$",
+      "\\.providers\\.ts$",
+      "\\.value-object\\.ts$",
+      "<rootDir>/shared/value-objects/value-object.ts$"
+    ],
     "collectCoverageFrom": [
       "**/*.(t|j)s"
     ],
