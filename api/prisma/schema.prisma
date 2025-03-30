@@ -7,6 +7,22 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum StatusConversation {
+  OPEN
+  CLOSED
+  PENDING
+}
+
+enum Direction {
+  IN
+  OUT
+}
+
+enum Channel {
+  SMS
+  WEB
+}
+
 model User {
   id        String   @id
   name      String
@@ -15,8 +31,9 @@ model User {
   createdAt DateTime
   updatedAt DateTime
   addressId String
-  
-  address   Address  @relation(fields: [addressId], references: [id])
+
+  address      Address        @relation(fields: [addressId], references: [id])
+  Conversation Conversation[]
 
   @@map("users")
 }
@@ -31,7 +48,30 @@ model Address {
   uf          String
   estado      String
   regiao      String
-  User        User[]
+  user        User[]
 
   @@map("address")
+}
+
+model Message {
+  id             String        @id
+  content        String
+  channel        Channel
+  direction      Direction
+  createdAt      DateTime
+  updatedAt      DateTime
+  conversation   Conversation? @relation(fields: [conversationId], references: [id])
+  conversationId String?
+
+  @@map("messages")
+}
+
+model Conversation {
+  id       String             @id
+  status   StatusConversation
+  messages Message[]
+  user     User               @relation(fields: [userId], references: [id])
+  userId   String
+
+  @@map("conversations")
 }
