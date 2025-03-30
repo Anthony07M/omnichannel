@@ -1,6 +1,6 @@
+import { Message } from 'src/messages/domain/entities/message.entiy';
 import { Uuid } from 'src/shared/value-objects/uuid.vo';
 import { UserId } from 'src/users/domain/entities/user.entity';
-import { Message } from './message.entiy';
 
 export class ConversationId extends Uuid {}
 
