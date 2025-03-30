@@ -1,4 +1,8 @@
-import { Message, MessageConstructorProps, MessageId } from '../message.entiy';
+import {
+  Message,
+  MessageConstructorProps,
+  MessageId,
+} from '../entities/message.entiy';
 
 describe('Message Unit Test', () => {
   it('should be create Message success with Direction IN, Chanel Web and Content', () => {

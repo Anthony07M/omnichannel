@@ -4,7 +4,7 @@ import {
   ConversationConstructorProps,
   ConversationId,
 } from '../conversation.entity';
-import { Message } from '../message.entiy';
+import { Message } from 'src/messages/domain/entities/message.entiy';
 
 describe('Unit test Conversation', () => {
   let messages: Message[];
