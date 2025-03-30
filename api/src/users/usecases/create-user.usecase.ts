@@ -35,6 +35,23 @@ export class CreateUserUseCase {
 
     await this.userRepository.save(user);
 
-    return user;
+    return {
+      id: user.id.toString(),
+      name: user.name,
+      email: user.email,
+      createdAt: user.createdAt,
+      updatedAt: user.updatedAt,
+      address: {
+        id: user.address.id.toString(),
+        cep: address.cep,
+        logradouro: address.logradouro,
+        complemento: address.complemento,
+        bairro: address.bairro,
+        localidade: address.localidade,
+        uf: address.uf,
+        estado: address.estado,
+        regiao: address.regiao,
+      },
+    };
   }
 }
