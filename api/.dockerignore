@@ -1,0 +1,13 @@
+node_modules/
+*.log
+.env
+.env.*
+docker-compose.yml
+dist/
+tmp/
+.cache/
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
